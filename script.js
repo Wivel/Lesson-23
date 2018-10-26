@@ -1,11 +1,20 @@
-function adder() {
+
+function check() {
     let
-        elems = document.getElementsByTagName('a');
-    for (let i = 0; i < elems.length; i++) {
-        elems[i].addEventListener('mouseover',addHREF);
+        str1            = String(this.value),
+        corectSym       = Number(this.getAttribute('data-length'));
+    if (str1.length == corectSym) {
+        this.style.borderColor = 'green';
+    }
+    else {
+        this.style.borderColor = 'red';
     }
 }
 
-function addHREF() {
-    this.innerHTML = this.innerHTML + '(' +this.getAttribute('href')+')';
+function adderEvent() {
+    let
+        elem = document.getElementsByTagName('input');
+    for (let i = 0; i < elem.length; i++) {
+        elem[i].addEventListener('blur', check);
+    }
 }
