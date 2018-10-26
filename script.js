@@ -1,15 +1,11 @@
-
-
-function img_src() {
+function adder() {
     let
-        elem = document.getElementsByTagName('img');
-    for (let i = 0;i<elem.length;i++){
-        elem[i].addEventListener('click',alerter);
+        elems = document.getElementsByTagName('a');
+    for (let i = 0; i < elems.length; i++) {
+        elems[i].addEventListener('mouseover',addHREF);
     }
-    
 }
 
-function alerter() {
-    alert(this.getAttribute('src'));
-    this.removeEventListener('click',alerter);
+function addHREF() {
+    this.innerHTML = this.innerHTML + '(' +this.getAttribute('href')+')';
 }
