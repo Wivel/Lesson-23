@@ -1,20 +1,31 @@
 
-function check() {
+
+function addEvent() {
     let
-        str1            = String(this.value),
-        corectSym       = Number(this.getAttribute('data-length'));
-    if (str1.length == corectSym) {
-        this.style.borderColor = 'green';
-    }
-    else {
-        this.style.borderColor = 'red';
+        elem       = document.getElementsByTagName('div');
+    for (let i = 0; i < elem.length; i++) {
+        elem[i].addEventListener('click', changeColor_1);
     }
 }
 
-function adderEvent() {
-    let
-        elem = document.getElementsByTagName('input');
-    for (let i = 0; i < elem.length; i++) {
-        elem[i].addEventListener('blur', check);
-    }
+function changeColor_1() {
+    this.style.backgroundColor = 'red';
+    this.removeEventListener('click', changeColor_1);
+    this.addEventListener('click', returnColor_1);
+}
+function returnColor_1() {
+    this.style.backgroundColor = 'blue';
+    this.removeEventListener('click', returnColor_1);
+    this.addEventListener('click', changeColor_2);
+}
+
+function changeColor_2() {
+    this.style.backgroundColor = 'green';
+    this.removeEventListener('click', changeColor_2);
+    this.addEventListener('click', returnColor_2);
+}
+function returnColor_2() {
+    this.style.backgroundColor = 'blue';
+    this.removeEventListener('click', returnColor_2);
+    this.addEventListener('click', changeColor_1);
 }

@@ -1,4 +1,9 @@
-img{
-    width: 150px;
-    height: 150px;
+div{
+    width: 300px;
+    height: 100px;
+    margin: 0px auto;
+    background-color: blue;
+    text-align: center;
+    font-size: 40px;
+    vertical-align: text-bottom;
 }
